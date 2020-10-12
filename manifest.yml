@@ -1,0 +1,8 @@
+---
+applications:
+- name: inventory-rest-service
+  memory: 256M
+  instances: 1
+  host: inventory-rest-service
+  domain: guides.spring.io
+  path: build/libs/inventory-rest-service-0.1.0.jar

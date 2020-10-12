@@ -1,0 +1,8 @@
+com/webler/inventory/repository/ProductRepository.java
+ com.webler.inventory.repository.ProductRepository
+com/webler/inventory/model/Product.java
+ com.webler.inventory.model.Product
+com/webler/inventory/RestServiceApplication.java
+ com.webler.inventory.RestServiceApplication
+com/webler/inventory/controller/ProductController.java
+ com.webler.inventory.controller.ProductController
