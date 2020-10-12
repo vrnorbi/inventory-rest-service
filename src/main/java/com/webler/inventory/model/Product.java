@@ -14,6 +14,9 @@ public class Product {
     private int price;
 
     @ManyToOne
+    private Brand brand;
+
+    @ManyToOne
     private Category category;
 
     public Integer getId() {
@@ -38,6 +41,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
     public Category getCategory() {
