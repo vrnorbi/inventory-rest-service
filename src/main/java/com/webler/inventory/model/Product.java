@@ -1,9 +1,6 @@
 package com.webler.inventory.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -13,6 +10,11 @@ public class Product {
     private Integer id;
 
     private String name;
+
+    private int price;
+
+    @ManyToOne
+    private Category category;
 
     public Integer getId() {
         return id;
@@ -28,6 +30,22 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
 }
