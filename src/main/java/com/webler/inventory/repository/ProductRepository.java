@@ -1,5 +1,6 @@
 package com.webler.inventory.repository;
 
+import com.webler.inventory.model.entities.Brand;
 import com.webler.inventory.model.entities.Product;
 import org.springframework.data.repository.CrudRepository;
 
