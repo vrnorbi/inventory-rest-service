@@ -1,10 +1,11 @@
-package com.webler.inventory.model;
+package com.webler.inventory.model.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.util.Date;
 
 @Entity
 public class ProductHistory {
@@ -16,7 +17,9 @@ public class ProductHistory {
    private Integer quantity;
    
    private Integer price;
-   
+
+   private Date date;
+
    @ManyToOne
    private Product product;
 
@@ -43,7 +46,15 @@ public class ProductHistory {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
 	public Product getProduct() {
 		return product;
 	}

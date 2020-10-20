@@ -1,4 +1,4 @@
-package com.webler.inventory.model;
+package com.webler.inventory.model.entities;
 
 import javax.persistence.*;
 
@@ -18,6 +18,12 @@ public class Product {
 
     @ManyToOne
     private Category category;
+
+    @ManyToOne
+    private Manufacturer manufacturer;
+
+    @ManyToOne
+    private Supplier supplier;
 
     public Integer getId() {
         return id;
@@ -59,4 +65,19 @@ public class Product {
         this.category = category;
     }
 
+    public Manufacturer getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 }

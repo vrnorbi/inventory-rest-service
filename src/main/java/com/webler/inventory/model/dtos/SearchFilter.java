@@ -1,12 +1,6 @@
-package com.webler.inventory.model.dto;
+package com.webler.inventory.model.dtos;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-
-public class SearchConditions {
+public class SearchFilter {
 
     private String name;
 
@@ -20,10 +14,7 @@ public class SearchConditions {
 
     private String manufaturer;
 
-    public SearchConditions() {
-    }
-
-    public SearchConditions(String name, String category, String brand, Integer price, String supplier, String manufaturer) {
+    public SearchFilter(String name, String category, String brand, Integer price, String supplier, String manufaturer) {
         this.name = name;
         this.category = category;
         this.brand = brand;

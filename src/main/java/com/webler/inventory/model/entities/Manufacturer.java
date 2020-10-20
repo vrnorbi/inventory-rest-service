@@ -1,4 +1,4 @@
-package com.webler.inventory.model;
+package com.webler.inventory.model.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
