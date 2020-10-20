@@ -1,6 +1,7 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.Product;
+import com.webler.inventory.model.entities.Product;
+import com.webler.inventory.model.dtos.SearchFilter;
 import com.webler.inventory.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +26,12 @@ public class ProductController {
 	}
 
 	@GetMapping(path="/name/{name}")
-	public @ResponseBody Iterable<Product> getProductByName(@PathVariable("name") String name) {
+	public @ResponseBody Iterable<Product> getProductsByName(@PathVariable("name") String name) {
 		return productRepository.findByNameContaining(name);
 	}
 
+	@GetMapping(path="/filter")
+	public @ResponseBody Iterable<Product> getProductsByFilter(@PathVariable("searchFilter") SearchFilter searchFilter){
+		return null;
+	}
 }
