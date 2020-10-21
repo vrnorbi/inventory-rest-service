@@ -14,7 +14,8 @@ public class Brand {
 
     private String name;
 
-    public Integer getId() { return id;
+    public Integer getId() {
+        return id;
     }
 
     public void setId(Integer id) {

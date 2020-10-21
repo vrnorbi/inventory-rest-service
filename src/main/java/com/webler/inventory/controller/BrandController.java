@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/brand")
+@RequestMapping("/brands")
 public class BrandController {
 
     @Autowired
-    private BrandRepository BrandRepository;
-    private com.webler.inventory.repository.BrandRepository brandRepository;
+    private BrandRepository brandRepository;
 
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Brand> findBrandName() { return brandRepository.findAll();
+    public @ResponseBody Iterable<Brand> findBrandName() {
+        return brandRepository.findAll();
     }
 
 

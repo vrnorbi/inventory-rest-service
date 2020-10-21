@@ -1,9 +1,7 @@
 package com.webler.inventory.controller;
 
 import com.webler.inventory.model.entities.Manufacturer;
-import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ManufacturerRepository;
-import com.webler.inventory.repository.ProductHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/manufacturer")
+@RequestMapping("/manufacturers")
 public class ManufacturerController {
 
     @Autowired
@@ -19,6 +17,7 @@ public class ManufacturerController {
 
     @GetMapping(path = "/all")
     public @ResponseBody
-    Iterable<Manufacturer> getAllManufacturer() { return manufacturerRepository.findAll();
+    Iterable<Manufacturer> getAllManufacturer() {
+        return manufacturerRepository.findAll();
     }
 }

@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/categories")
 public class CategoryController {
 
         @Autowired
         private CategoryRepository categoryRepository;
 
         @GetMapping(path="/all")
-        public @ResponseBody Iterable<Category> findByCategoryName() { return categoryRepository.findAll();
+        public @ResponseBody Iterable<Category> findByCategoryName() {
+            return categoryRepository.findAll();
         }
 }

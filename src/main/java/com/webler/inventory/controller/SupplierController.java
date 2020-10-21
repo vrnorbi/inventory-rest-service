@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("/suppliers")
 public class SupplierController {
 
     @Autowired
     private SupplierRepository supplierRepository;
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Supplier> findBySupplier() { return supplierRepository.findAll();
+    public @ResponseBody Iterable<Supplier> findBySupplier() {
+        return supplierRepository.findAll();
     }
 }
