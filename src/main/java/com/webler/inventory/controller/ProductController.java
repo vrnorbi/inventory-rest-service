@@ -3,6 +3,7 @@ package com.webler.inventory.controller;
 import com.webler.inventory.model.entities.Product;
 import com.webler.inventory.model.dtos.SearchFilter;
 import com.webler.inventory.repository.ProductRepository;
+import com.webler.inventory.repository.ProductSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,6 +29,11 @@ public class ProductController {
 	@GetMapping(path="/name/{name}")
 	public @ResponseBody Iterable<Product> getProductsByName(@PathVariable("name") String name) {
 		return productRepository.findByNameContaining(name);
+	}
+
+	@GetMapping(path="/exactname/{name}")
+	public @ResponseBody Iterable<Product> getProductsByExactName(@PathVariable("name") String name) {
+		return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(name));
 	}
 
 	@GetMapping(path="/filter")
