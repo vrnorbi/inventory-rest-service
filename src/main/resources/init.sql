@@ -1,4 +1,8 @@
+Supplier
+insert into supplier VALUES(1, 11885069219, 'ContinentalcCargo Kft' , 3 , 'https://www.continentalcargo.hu');
 
+Manufacturer
+insert into manufacturer VALUES(1,'China','Samsung Electonics',5 ,'https://www.samsung.com/');
 Brand
 insert into brand VALUES(1, 'Acer');
 insert into brand VALUES(2, 'GeFors');
