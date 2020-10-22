@@ -36,9 +36,12 @@ public class ProductController {
 
     @GetMapping(path = "/exactname/{name}/{category}")
     public @ResponseBody
-    Iterable<Product> getProductsByExactName(@PathVariable("name") String name, @PathVariable("category") String category) {
+    Iterable<Product> getProductsByExactName(@PathVariable("name") String name, @PathVariable("category") String category, @PathVariable("brand") String brand,@PathVariable("manufacturer") String manufacturer,@PathVariable("supplier") String supplier) {
         return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(name)
-                .and(ProductSpecifications.getProductsByCategorySpec(category)));
+                .and(ProductSpecifications.getProductsByCategorySpec(category))
+                .and(ProductSpecifications.getProductsByBrandSpec(brand))
+                .and(ProductSpecifications.getProductsByManufacturerSpec(manufacturer))
+                .and(ProductSpecifications.getProductsBySupplierSpec(supplier)));
     }
 
     @GetMapping(path = "/filter")
