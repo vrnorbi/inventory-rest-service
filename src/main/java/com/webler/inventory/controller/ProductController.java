@@ -3,9 +3,10 @@ package com.webler.inventory.controller;
 import com.webler.inventory.model.entities.Product;
 import com.webler.inventory.model.dtos.SearchFilter;
 import com.webler.inventory.repository.ProductRepository;
-import com.webler.inventory.repository.ProductSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import static com.webler.inventory.repository.specs.ProductSpecifications.getProductsByFilterSpec;
 
 @RestController
 @RequestMapping("/products")
@@ -33,12 +34,11 @@ public class ProductController {
 
     @GetMapping(path = "/filter")
     public @ResponseBody Iterable<Product> getProductsByFilter(SearchFilter searchFilter) {
-        return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(searchFilter.getName())
-                .and(ProductSpecifications.getProductsByCategorySpec(searchFilter.getCategory()))
-                .and(ProductSpecifications.getProductsByBrandSpec(searchFilter.getBrand()))
-                .and(ProductSpecifications.getProductsByManufacturerSpec(searchFilter.getManufacturer()))
-                .and(ProductSpecifications.getProductsBySupplierSpec(searchFilter.getSupplier()))
-                .and(ProductSpecifications.getProductsPriceGraterThan(searchFilter.getToPrice()))
-                .and(ProductSpecifications.getProductsPriceLessThan(searchFilter.getToPrice())));
+        return productRepository.findAll(getProductsByFilterSpec(searchFilter));
+    }
+
+    @PostMapping(path="/new")
+    public @ResponseBody void saveProduct(@RequestBody Product product) {
+        productRepository.save(product);
     }
 }
