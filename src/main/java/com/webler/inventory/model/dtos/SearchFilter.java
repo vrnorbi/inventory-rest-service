@@ -1,20 +1,23 @@
 package com.webler.inventory.model.dtos;
 
+import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.MIN_VALUE;
+
 public class SearchFilter {
 
-    private String name;
+    private String name = "";
 
-    private String category;
+    private String category = "";
 
-    private String brand;
+    private String brand = "";
 
-    private Integer fromPrice;
+    private Integer fromPrice = MIN_VALUE;
 
-    private Integer toPrice;
+    private Integer toPrice = MAX_VALUE;
 
-    private String supplier;
+    private String supplier = "";
 
-    private String manufacturer;
+    private String manufacturer = "";
 
     public SearchFilter() {
 
