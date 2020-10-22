@@ -8,19 +8,26 @@ public class SearchFilter {
 
     private String brand;
 
-    private Integer price;
+    private Integer fromPrice;
+
+    private Integer toPrice;
 
     private String supplier;
 
-    private String manufaturer;
+    private String manufacturer;
 
-    public SearchFilter(String name, String category, String brand, Integer price, String supplier, String manufaturer) {
+    public SearchFilter() {
+
+    }
+
+    public SearchFilter(String name, String category, String brand, Integer fromPrice, Integer toPrice, String supplier, String manufacturer) {
         this.name = name;
         this.category = category;
         this.brand = brand;
-        this.price = price;
+        this.fromPrice = fromPrice;
+        this.toPrice = toPrice;
         this.supplier = supplier;
-        this.manufaturer = manufaturer;
+        this.manufacturer = manufacturer;
     }
 
     public String getName() {
@@ -47,12 +54,20 @@ public class SearchFilter {
         this.brand = brand;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getFromPrice() {
+        return fromPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
+    public void setFromPrice(Integer fromPrice) {
+        this.fromPrice = fromPrice;
+    }
+
+    public Integer getToPrice() {
+        return toPrice;
+    }
+
+    public void setToPrice(Integer toPrice) {
+        this.toPrice = toPrice;
     }
 
     public String getSupplier() {
@@ -63,11 +78,11 @@ public class SearchFilter {
         this.supplier = supplier;
     }
 
-    public String getManufaturer() {
-        return manufaturer;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setManufaturer(String manufaturer) {
-        this.manufaturer = manufaturer;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 }
