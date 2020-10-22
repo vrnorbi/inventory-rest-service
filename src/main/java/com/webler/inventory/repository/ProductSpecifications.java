@@ -25,4 +25,12 @@ public class ProductSpecifications {
     public static Specification<Product> getProductsBySupplierSpec(String supplier) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("supplier").get("name"), "%" + supplier + "%");
     }
+
+    public static Specification<Product> getProductsPriceGraterThan(Integer price) {
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(root.get("product").get("price"), "%" + price + "%");
+    }
+
+    public static Specification<Product> getProductsPriceLessThan(Integer price) {
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThan(root.get("product").get("price"), "%" + price + "%");
+    }
 }

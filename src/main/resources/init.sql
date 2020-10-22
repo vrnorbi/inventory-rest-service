@@ -1,4 +1,4 @@
-Supplier
+--Supplier
 insert into supplier VALUES(1, 11885069219, 'ContinentalcCargo Kft' , 3 , 'https://www.continentalcargo.hu');
 insert into supplier VALUES(2, 11892766392, 'ExportHungary Kft' , 4 , 'https://www.exporthungary.hu');
 insert into supplier VALUES(3, 20672315141, 'Török-Export-Import' , 2 , 'https://www.torokorszag-import-export.hu');
@@ -6,7 +6,7 @@ insert into supplier VALUES(4, 10713033202, 'Kontakt-Elektro Kft' , 4 , 'https:/
 insert into supplier VALUES(5, 22614546241, 'Bormental Doktor Kft' , 5 , 'https://www.bormental.hu');
 
 
-Manufacturer
+--Manufacturer
 insert into manufacturer VALUES(1,'China','Samsung Electonics',5 ,'https://www.samsung.com/');
 insert into manufacturer VALUES (2,'USA','Acer America Corporation',4,'https://www.acer.com/ac/hu/HU/content/home');
 insert into manufacturer VALUES (3,'USA','GeForce',5,'https://www.nvidia.com/en-eu/geforce/');
@@ -24,7 +24,7 @@ insert into manufacturer VALUES (14,'Germany','Bosch ',5,'https://www.bosch.com/
 insert into manufacturer VALUES (15,'England','Whirlpool Corporation',2,'https://www.whirlpool.com/');
 
 
-Brand
+--Brand
 insert into brand VALUES(1, 'Acer');
 INSERT INTO brand VALUES(2,'GeForce');
 insert into brand VALUES(3, 'Asus');
@@ -43,7 +43,7 @@ INSERT INTO brand VALUES(15,'Bosch');
 INSERT INTO brand VALUES(16,'Whirpool');
 
 
-Category
+--Category
 insert into category VALUES(1, 'Asztali_számítógép');
 insert into category VALUES(2, 'Monitorok');
 insert into category VALUES(3, 'Gamer_Pc');
@@ -54,7 +54,7 @@ insert into category VALUES(7, 'Gamer_egér');
 insert into category VALUES(8, 'Szoftverek');
 insert into category VALUES(9, 'Pc_alkatrészek');
 insert into category VALUES(10, 'SSD_meghajtók');
-INSERT INTO brand VALUES (12,'Tv');
+INSERT INTO category VALUES (11,'Tv');
 INSERT INTO category VALUES (12,'Washing machine');
 INSERT INTO category VALUES (13,'Telephones');
 

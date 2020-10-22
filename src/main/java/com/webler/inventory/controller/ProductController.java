@@ -19,7 +19,6 @@ public class ProductController {
     Iterable<Product> getAllProducts() {
         return productRepository.findAll();
     }
-
     @GetMapping(path = "/id/{id}")
     public @ResponseBody
     Product getProductById(@PathVariable("id") int id) {
@@ -27,29 +26,30 @@ public class ProductController {
                 .findById(id)
                 .orElse(new Product());
     }
-
     @GetMapping(path = "/name/{name}")
     public @ResponseBody
     Iterable<Product> getProductsByName(@PathVariable("name") String name) {
         return productRepository.findByNameContaining(name);
     }
-
     @GetMapping(path = "/exactname/{name}/{category}")
     public @ResponseBody
-    Iterable<Product> getProductsByExactName(@PathVariable("name") String name, @PathVariable("category") String category, @PathVariable("brand") String brand,@PathVariable("manufacturer") String manufacturer,@PathVariable("supplier") String supplier) {
+    Iterable<Product> getProductsByExactName(@PathVariable("name") String name, @PathVariable("category") String category, @PathVariable("brand") String brand,@PathVariable("manufacturer") String manufacturer,@PathVariable("supplier") String supplier,@PathVariable("product") Integer graterprice,@PathVariable("product") Integer lessthanprice) {
         return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(name)
                 .and(ProductSpecifications.getProductsByCategorySpec(category))
                 .and(ProductSpecifications.getProductsByBrandSpec(brand))
                 .and(ProductSpecifications.getProductsByManufacturerSpec(manufacturer))
-                .and(ProductSpecifications.getProductsBySupplierSpec(supplier)));
+                .and(ProductSpecifications.getProductsBySupplierSpec(supplier))
+                .and(ProductSpecifications.getProductsPriceGraterThan(graterprice))
+                .and(ProductSpecifications.getProductsPriceLessThan(lessthanprice)));
     }
-
     @GetMapping(path = "/filter")
     public @ResponseBody Iterable<Product> getProductsByFilter(SearchFilter searchFilter) {
         return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(searchFilter.getName())
                 .and(ProductSpecifications.getProductsByCategorySpec(searchFilter.getCategory()))
                 .and(ProductSpecifications.getProductsByBrandSpec(searchFilter.getBrand()))
                 .and(ProductSpecifications.getProductsByManufacturerSpec(searchFilter.getManufacturer()))
-                .and(ProductSpecifications.getProductsBySupplierSpec(searchFilter.getSupplier())));
+                .and(ProductSpecifications.getProductsBySupplierSpec(searchFilter.getSupplier()))
+                .and(ProductSpecifications.getProductsPriceGraterThan(searchFilter.getToPrice()))
+                .and(ProductSpecifications.getProductsPriceLessThan(searchFilter.getToPrice())));
     }
 }
