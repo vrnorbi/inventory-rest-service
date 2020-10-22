@@ -11,33 +11,42 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/products")
 public class ProductController {
 
-	@Autowired
-	private ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
-	@GetMapping(path="/all")
-	public @ResponseBody Iterable<Product> getAllProducts() {
-		return productRepository.findAll();
-	}
+    @GetMapping(path = "/all")
+    public @ResponseBody
+    Iterable<Product> getAllProducts() {
+        return productRepository.findAll();
+    }
 
-	@GetMapping(path="/id/{id}")
-	public @ResponseBody Product getProductById(@PathVariable("id") int id) {
-		return productRepository
-				.findById(id)
-				.orElse(new Product());
-	}
+    @GetMapping(path = "/id/{id}")
+    public @ResponseBody
+    Product getProductById(@PathVariable("id") int id) {
+        return productRepository
+                .findById(id)
+                .orElse(new Product());
+    }
 
-	@GetMapping(path="/name/{name}")
-	public @ResponseBody Iterable<Product> getProductsByName(@PathVariable("name") String name) {
-		return productRepository.findByNameContaining(name);
-	}
+    @GetMapping(path = "/name/{name}")
+    public @ResponseBody
+    Iterable<Product> getProductsByName(@PathVariable("name") String name) {
+        return productRepository.findByNameContaining(name);
+    }
 
-	@GetMapping(path="/exactname/{name}")
-	public @ResponseBody Iterable<Product> getProductsByExactName(@PathVariable("name") String name) {
-		return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(name));
-	}
+    @GetMapping(path = "/exactname/{name}/{category}")
+    public @ResponseBody
+    Iterable<Product> getProductsByExactName(@PathVariable("name") String name, @PathVariable("category") String category) {
+        return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(name)
+                .and(ProductSpecifications.getProductsByCategorySpec(category)));
+    }
 
-	@GetMapping(path="/filter")
-	public @ResponseBody Iterable<Product> getProductsByFilter(@PathVariable("searchFilter") SearchFilter searchFilter){
-		return null;
-	}
+    @GetMapping(path = "/filter")
+    public @ResponseBody Iterable<Product> getProductsByFilter(SearchFilter searchFilter) {
+        return productRepository.findAll(ProductSpecifications.getProductsByNameSpec(searchFilter.getName())
+                .and(ProductSpecifications.getProductsByCategorySpec(searchFilter.getCategory()))
+                .and(ProductSpecifications.getProductsByBrandSpec(searchFilter.getBrand()))
+                .and(ProductSpecifications.getProductsByManufacturerSpec(searchFilter.getManufacturer()))
+                .and(ProductSpecifications.getProductsBySupplierSpec(searchFilter.getSupplier())));
+    }
 }

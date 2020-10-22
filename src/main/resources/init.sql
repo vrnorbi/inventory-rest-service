@@ -38,7 +38,7 @@ INSERT INTO category VALUES (12,'Washing machine');
 INSERT INTO category VALUES (13,'Telephones');
 
 
-Products
+--Products
 INSERT INTO product VALUES (1,'Acer Nitro 50 Gamer asztali számítógép, Intel® Core™ i7-8700, 8GB, 256GBB SSD, NVIDIA GeForce GTX 1060 6GB GDDR5, DVD író, WiFi AC, Windows® 10 Home',434.990,1,1);
 INSERT INTO product VALUES (2,'Acer VZ4860G All-in-One Asztali számítógép, Intel® Core™ i5-9400 akár 4.10 GHz processzorral, Coffee Lake, 23.8", Full HD, 8GB, 256GB SSD, Intel® UHD Graphics 630, Microsoft Windows 10 Pro',434.190,1,1);
 INSERT INTO product VALUES (3,'GeFors Office i7 Asztali PC Intel® Core™ i7-4770 3.90 Ghz, RAM 16GB, HDD 1000GB, VGA Intel® HD Graphics, DVD RW + Egér billentyűzet',154.990,2,1);
