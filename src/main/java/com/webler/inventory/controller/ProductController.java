@@ -22,7 +22,7 @@ public class ProductController {
     }
 
     @PostMapping(path="/new")
-    public @ResponseBody void saveProduct(@RequestBody Product product) {
+    public void saveProduct(@RequestBody Product product) {
         productRepository.save(product);
     }
 
