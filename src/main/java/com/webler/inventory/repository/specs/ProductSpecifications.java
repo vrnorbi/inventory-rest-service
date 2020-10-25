@@ -1,19 +1,19 @@
 package com.webler.inventory.repository.specs;
 
-import com.webler.inventory.model.dtos.SearchFilter;
+import com.webler.inventory.model.dtos.FilterParams;
 import com.webler.inventory.model.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 
 public class ProductSpecifications {
 
-    public static Specification<Product> getProductsByFilterSpec(SearchFilter searchFilter) {
-        return getProductsByNameSpec(searchFilter.getName())
-                .and(getProductsByCategorySpec(searchFilter.getCategory()))
-                .and(getProductsByBrandSpec(searchFilter.getBrand()))
-                .and(getProductsByManufacturerSpec(searchFilter.getManufacturer()))
-                .and(getProductsBySupplierSpec(searchFilter.getSupplier()))
-                .and(getProductsPriceGraterThan(searchFilter.getFromPrice()))
-                .and(getProductsPriceLessThan(searchFilter.getToPrice()));
+    public static Specification<Product> getProductsByFilterSpec(FilterParams filterParams) {
+        return getProductsByNameSpec(filterParams.getName())
+                .and(getProductsByCategorySpec(filterParams.getCategory()))
+                .and(getProductsByBrandSpec(filterParams.getBrand()))
+                .and(getProductsByManufacturerSpec(filterParams.getManufacturer()))
+                .and(getProductsBySupplierSpec(filterParams.getSupplier()))
+                .and(getProductsPriceGraterThan(filterParams.getFromPrice()))
+                .and(getProductsPriceLessThan(filterParams.getToPrice()));
     }
 
     //    one condition
