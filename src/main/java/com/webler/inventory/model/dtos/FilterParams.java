@@ -3,7 +3,7 @@ package com.webler.inventory.model.dtos;
 import static java.lang.Integer.MAX_VALUE;
 import static java.lang.Integer.MIN_VALUE;
 
-public class SearchFilter {
+public class FilterParams {
 
     private String name = "";
 
@@ -19,11 +19,11 @@ public class SearchFilter {
 
     private String manufacturer = "";
 
-    public SearchFilter() {
+    public FilterParams() {
 
     }
 
-    public SearchFilter(String name, String category, String brand, Integer fromPrice, Integer toPrice, String supplier, String manufacturer) {
+    public FilterParams(String name, String category, String brand, Integer fromPrice, Integer toPrice, String supplier, String manufacturer) {
         this.name = name;
         this.category = category;
         this.brand = brand;
