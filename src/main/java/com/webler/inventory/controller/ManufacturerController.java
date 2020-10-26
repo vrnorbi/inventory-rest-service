@@ -1,6 +1,6 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.FilterParams;
+import com.webler.inventory.model.dtos.ManufacturerFilterParams;
 import com.webler.inventory.model.dtos.PagingParams;
 import com.webler.inventory.model.dtos.SortingParams;
 import com.webler.inventory.model.entities.Manufacturer;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import static com.webler.inventory.repository.specs.ManufacturerSpecifications.getManufacturerByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RestController
@@ -20,8 +21,10 @@ public class ManufacturerController {
     private ManufacturerRepository manufacturerRepository;
 
     @GetMapping(path = "/filter")
-    public @ResponseBody Page<Manufacturer> filterManufacturers(FilterParams filterParams,SortingParams sortingParams, PagingParams pagingParams) {
-        return manufacturerRepository.findAll(of(pagingParams.getPage(), pagingParams.getSize()));
+    public @ResponseBody Page<Manufacturer> filterManufacturers(ManufacturerFilterParams manufacturerFilterParams,SortingParams sortingParams, PagingParams pagingParams) {
+        return manufacturerRepository.findAll(
+                getManufacturerByFilterSpec(manufacturerFilterParams),
+                of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
     }
 
     @GetMapping(path = "/all")
