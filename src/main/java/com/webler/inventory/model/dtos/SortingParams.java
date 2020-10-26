@@ -2,6 +2,7 @@ package com.webler.inventory.model.dtos;
 
 import org.springframework.data.domain.Sort;
 
+import static org.springframework.data.domain.Sort.Direction.DESC;
 import static org.springframework.data.domain.Sort.by;
 
 public class SortingParams {
@@ -18,7 +19,7 @@ public class SortingParams {
     }
 
     public Sort getSorting() {
-        if (Sort.Direction.DESC.name().equals(sortDirection))
+        if (DESC.name().equals(sortDirection.toUpperCase()))
             return by(sortBy).descending();
         return by(sortBy).ascending();
     }
