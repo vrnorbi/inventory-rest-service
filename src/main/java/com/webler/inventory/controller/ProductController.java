@@ -20,12 +20,22 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
+    @GetMapping(path = "/id")
+    public @ResponseBody Product getProductById(Integer id) throws Exception {
+        return productRepository.findById(id).orElseThrow(() -> new Exception("Product not found"));
+    }
+
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Product> getProductsByFilter(FilterParams filterParams, SortingParams sortingParams, PagingParams pagingParams) {
         return productRepository.findAll(
                 getProductsByFilterSpec(filterParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting())
         );
+    }
+
+    @DeleteMapping(path = "/delete/{id}")
+    public void deleteProduct(@PathVariable("id") Integer id) {
+        productRepository.deleteById(id);
     }
 
     @PostMapping(path = "/new")
