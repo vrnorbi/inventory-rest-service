@@ -2,7 +2,7 @@ package com.webler.inventory.model.dtos;
 
 public class BrandParams {
 
-    private String name;
+    private String name = "";
 
     public BrandParams(){
 

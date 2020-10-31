@@ -13,11 +13,11 @@ public class ManufacturerSpecifications {
     }
 
     private static Specification<Manufacturer> getManufacturerByNameSpec(String name) {
-        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("manufacturer").get("name"), "%" + name + "%");
+        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + name + "%");
     }
 
     private static Specification<Manufacturer> getManufacturerByCountry(String country) {
-        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("manufacturer").get("country"), "%" + country + "%");
+        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("country"), "%" + country + "%");
     }
 
     private static Specification<Manufacturer> getManufacturerByRating(Integer rating) {
