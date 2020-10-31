@@ -8,10 +8,7 @@ import com.webler.inventory.repository.BrandRepository;
 import com.webler.inventory.repository.specs.BrandSpecifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.data.domain.PageRequest.of;
 
@@ -26,6 +23,11 @@ public class BrandController {
     public @ResponseBody Page<Brand> getBrandByNameSpec(BrandParams brandParams, SortingParams sortingParams, PagingParams pagingParams) {
         return brandRepository.findAll(BrandSpecifications.getBrandByFilterSpec(brandParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
+    }
+
+    @GetMapping(path = "/all")
+    public @ResponseBody Iterable<Brand> getAllBrands() {
+        return brandRepository.findAll();
     }
 
 }
