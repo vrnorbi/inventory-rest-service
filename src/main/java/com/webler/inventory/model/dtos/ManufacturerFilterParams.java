@@ -2,13 +2,13 @@ package com.webler.inventory.model.dtos;
 
 public class ManufacturerFilterParams {
 
-    private String name;
+    private String name = "";
 
-    private String country;
+    private String country = "";
 
-    private String url;
+    private String url = "";
 
-    private Integer rating;
+    private Integer rating = 0;
 
     public ManufacturerFilterParams(){
 

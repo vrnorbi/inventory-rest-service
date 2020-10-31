@@ -2,7 +2,7 @@ package com.webler.inventory.model.dtos;
 
 public class CategoryParams {
 
-    private String name;
+    private String name = "";
 
     public CategoryParams(){}
 

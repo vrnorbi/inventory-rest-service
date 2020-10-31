@@ -43,4 +43,8 @@ public class ProductController {
         productRepository.save(product);
     }
 
+    @PutMapping(path = "/update")
+    public void updateProduct(@RequestBody Product product) {
+        productRepository.save(product);
+    }
 }
