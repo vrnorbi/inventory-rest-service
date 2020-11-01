@@ -2,13 +2,13 @@ package com.webler.inventory.model.dtos;
 
 public class SupplierParams {
 
-    private String name;
+    private String name = "";
 
-    private String iban;
+    private String iban = "";
 
-    private String url;
+    private String url = "";
 
-    private Integer rating;
+    private Integer rating = 0;
 
     public SupplierParams(){}
 
