@@ -28,7 +28,7 @@ public class CategoryController {
         }
 
         @GetMapping(path="/all")
-        public @ResponseBody Iterable<Category> findByCategoryName() {
+        public @ResponseBody Iterable<Category> findAllCategories() {
             return categoryRepository.findAll();
         }
 }

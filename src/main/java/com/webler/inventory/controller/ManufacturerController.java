@@ -28,8 +28,7 @@ public class ManufacturerController {
     }
 
     @GetMapping(path = "/all")
-    public @ResponseBody
-    Iterable<Manufacturer> getAllManufacturer() {
+    public @ResponseBody Iterable<Manufacturer> getAllManufacturers() {
         return manufacturerRepository.findAll();
     }
 }

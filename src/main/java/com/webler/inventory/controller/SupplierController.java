@@ -29,6 +29,11 @@ public class SupplierController {
         );
     }
 
+    @GetMapping(path = "/all")
+    public @ResponseBody Iterable<Supplier> getAllSuppliers() {
+        return supplierRepository.findAll();
+    }
+
     @PostMapping(path = "/new")
     public void saveSupplier(@RequestBody Supplier supplier) {
         supplierRepository.save(supplier);
