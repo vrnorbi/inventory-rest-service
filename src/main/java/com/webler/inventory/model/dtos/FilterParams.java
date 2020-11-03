@@ -15,6 +15,10 @@ public class FilterParams {
 
     private Integer toPrice = MAX_VALUE;
 
+    private Integer fromQuantity = MIN_VALUE;
+
+    private Integer toQuantity = MAX_VALUE;
+
     private String supplier = "";
 
     private String manufacturer = "";
@@ -23,12 +27,14 @@ public class FilterParams {
 
     }
 
-    public FilterParams(String name, String category, String brand, Integer fromPrice, Integer toPrice, String supplier, String manufacturer) {
+    public FilterParams(String name, String category, String brand, Integer fromPrice, Integer toPrice, Integer fromQuantity, Integer toQuantity, String supplier, String manufacturer) {
         this.name = name;
         this.category = category;
         this.brand = brand;
         this.fromPrice = fromPrice;
         this.toPrice = toPrice;
+        this.fromQuantity = fromQuantity;
+        this.toQuantity = toQuantity;
         this.supplier = supplier;
         this.manufacturer = manufacturer;
     }
@@ -71,6 +77,22 @@ public class FilterParams {
 
     public void setToPrice(Integer toPrice) {
         this.toPrice = toPrice;
+    }
+
+    public Integer getFromQuantity() {
+        return fromQuantity;
+    }
+
+    public void setFromQuantity(Integer fromQuantity) {
+        this.fromQuantity = fromQuantity;
+    }
+
+    public Integer getToQuantity() {
+        return toQuantity;
+    }
+
+    public void setToQuantity(Integer toQuantity) {
+        this.toQuantity = toQuantity;
     }
 
     public String getSupplier() {

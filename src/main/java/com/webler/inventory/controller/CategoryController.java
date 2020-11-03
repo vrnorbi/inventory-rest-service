@@ -22,7 +22,7 @@ public class CategoryController {
         private CategoryRepository categoryRepository;
 
         @GetMapping(path = "/filter")
-        public @ResponseBody Page<Category> getCategoryByNameSpec(CategoryParams categoryParams,SortingParams sortingParams, PagingParams pagingParams) {
+        public @ResponseBody Page<Category> getCategoryByName(CategoryParams categoryParams, SortingParams sortingParams, PagingParams pagingParams) {
                 return categoryRepository.findAll(CategorySpecifications.getCategoryByFilterSpec(categoryParams),
                         of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
         }

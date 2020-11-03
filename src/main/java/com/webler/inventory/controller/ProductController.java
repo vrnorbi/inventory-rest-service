@@ -15,7 +15,7 @@ import static org.springframework.data.domain.PageRequest.of;
 @RestController
 @RequestMapping("/products")
 @CrossOrigin(origins = "http://localhost:4200")
-public class ProductController {
+public class  ProductController {
 
     @Autowired
     private ProductRepository productRepository;

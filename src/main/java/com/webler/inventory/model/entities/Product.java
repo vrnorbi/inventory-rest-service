@@ -13,6 +13,8 @@ public class Product {
 
     private int price;
 
+    private int quantity;
+
     @ManyToOne
     private Brand brand;
 
@@ -47,6 +49,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Brand getBrand() {
