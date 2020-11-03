@@ -13,7 +13,9 @@ public class ProductSpecifications {
                 .and(getProductsByManufacturerSpec(filterParams.getManufacturer()))
                 .and(getProductsBySupplierSpec(filterParams.getSupplier()))
                 .and(getProductsPriceGraterThan(filterParams.getFromPrice()))
-                .and(getProductsPriceLessThan(filterParams.getToPrice()));
+                .and(getProductsPriceLessThan(filterParams.getToPrice())
+                .and(getProductsQuantityGraterThan(filterParams.getFromQuantity()))
+                .and(getProductsQuantityLessThan(filterParams.getToQuantity())));
     }
 
     //    one condition
@@ -43,5 +45,13 @@ public class ProductSpecifications {
 
     private static Specification<Product> getProductsPriceLessThan(Integer price) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThan(root.get("price"), price);
+    }
+
+    private static Specification<Product> getProductsQuantityGraterThan(Integer quantity) {
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(root.get("quantity"), quantity);
+    }
+
+    private static Specification<Product> getProductsQuantityLessThan(Integer quantity) {
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThan(root.get("quantity"), quantity);
     }
 }
