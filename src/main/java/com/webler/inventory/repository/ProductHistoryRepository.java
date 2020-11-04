@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ProductHistoryRepository extends CrudRepository<ProductHistory, Integer> {
 
+    public Iterable<ProductHistory> findByProductId(Integer productId);
 }
