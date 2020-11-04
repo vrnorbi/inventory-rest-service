@@ -20,4 +20,9 @@ public class ProductHistoryController {
     public @ResponseBody Iterable<ProductHistory> getAllProductHistories() {
         return productHistoryRepository.findAll();
     }
+
+    @GetMapping(path="/filter")
+    public @ResponseBody Iterable<ProductHistory> getProductHistoriesByProductId(Integer productId) {
+        return productHistoryRepository.findByProductId(productId);
+    }
 }
