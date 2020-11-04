@@ -1,9 +1,14 @@
 package com.webler.inventory.repository;
 
+import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.entities.ProductHistory;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ProductHistoryRepository extends CrudRepository<ProductHistory, Integer> {
 
-    public Iterable<ProductHistory> findByProductId(Integer productId);
+    @Query(" select new com.webler.inventory.model.dtos.ProductHistoryDto(p.date, p.price, p.quantity) " +
+            " from ProductHistory p " +
+            " where p.product.id = ?1 ")
+    Iterable<ProductHistoryDto> findByProductId(Integer productId);
 }
