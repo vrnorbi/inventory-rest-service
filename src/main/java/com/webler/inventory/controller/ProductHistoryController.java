@@ -1,6 +1,7 @@
 package com.webler.inventory.controller;
 
 
+import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ProductHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ProductHistoryController {
     }
 
     @GetMapping(path="/filter")
-    public @ResponseBody Iterable<ProductHistory> getProductHistoriesByProductId(Integer productId) {
+    public @ResponseBody Iterable<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
         return productHistoryRepository.findByProductId(productId);
     }
 }
