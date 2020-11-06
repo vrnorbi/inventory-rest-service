@@ -12,7 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
+import java.util.Date;
 
 import static com.webler.inventory.repository.specs.ProductSpecifications.getProductsByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;

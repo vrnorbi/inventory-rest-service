@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RestController
@@ -33,7 +35,10 @@ public class ProductHistoryController {
     public @ResponseBody ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
         List<ProductHistoryDto> productHistoryDtos = productHistoryRepository
                                                         .findByProductId(productId, of(0, 7))
-                                                        .getContent();
+                                                        .getContent()
+                                                        .stream()
+                                                        .sorted(comparing(ProductHistoryDto::getDate))
+                                                        .collect(toList());
         ProductDto productDto = productRepository.findProductById(productId);
         return new ProductWithHistoryDto(productDto, productHistoryDtos);
 

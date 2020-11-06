@@ -1,12 +1,10 @@
 package com.webler.inventory.model.dtos;
 
-import org.springframework.data.domain.Sort;
-
 public class PagingParams {
 
     private int page = 0;
 
-    private int size = 5;
+    private int size = 10;
 
     public PagingParams() {}
 
