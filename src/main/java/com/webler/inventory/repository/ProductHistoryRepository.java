@@ -2,6 +2,8 @@ package com.webler.inventory.repository;
 
 import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.entities.ProductHistory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,5 +13,5 @@ public interface ProductHistoryRepository extends CrudRepository<ProductHistory,
             " from ProductHistory p " +
             " where p.product.id = ?1 " +
             " order by p.date ")
-    Iterable<ProductHistoryDto> findByProductId(Integer productId);
+    Page<ProductHistoryDto> findByProductId(Integer productId, Pageable pageable);
 }
