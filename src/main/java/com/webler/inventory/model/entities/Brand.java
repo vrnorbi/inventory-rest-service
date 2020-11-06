@@ -14,12 +14,6 @@ public class Brand {
 
     private String name;
 
-    private String brandType;
-
-    private String mainProduct;
-
-    private Integer brandsProductInInventory;
-
     public Integer getId() {
         return id;
     }
@@ -36,27 +30,4 @@ public class Brand {
         this.name = name;
     }
 
-    public String getBrandType() {
-        return brandType;
-    }
-
-    public void setBrandType(String brandType) {
-        this.brandType = brandType;
-    }
-
-    public String getMainProduct() {
-        return mainProduct;
-    }
-
-    public void setMainProduct(String mainProduct) {
-        this.mainProduct = mainProduct;
-    }
-
-    public Integer getBrandsProductInInventory() {
-        return brandsProductInInventory;
-    }
-
-    public void setBrandsProductInInventory(Integer brandsProductInInventory) {
-        this.brandsProductInInventory = brandsProductInInventory;
-    }
 }
