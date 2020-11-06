@@ -40,18 +40,18 @@ public class ProductSpecifications {
     }
 
     private static Specification<Product> getProductsPriceGraterThan(Integer price) {
-        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(root.get("price"), price);
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
     }
 
     private static Specification<Product> getProductsPriceLessThan(Integer price) {
-        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThan(root.get("price"), price);
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("price"), price);
     }
 
     private static Specification<Product> getProductsQuantityGraterThan(Integer quantity) {
-        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(root.get("quantity"), quantity);
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("quantity"), quantity);
     }
 
     private static Specification<Product> getProductsQuantityLessThan(Integer quantity) {
-        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThan(root.get("quantity"), quantity);
+        return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("quantity"), quantity);
     }
 }

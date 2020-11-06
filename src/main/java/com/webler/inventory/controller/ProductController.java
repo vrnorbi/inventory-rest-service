@@ -9,6 +9,7 @@ import com.webler.inventory.repository.ProductHistoryRepository;
 import com.webler.inventory.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
@@ -41,7 +42,9 @@ public class  ProductController {
     }
 
     @DeleteMapping(path = "/delete/{id}")
+    @Transactional
     public void deleteProduct(@PathVariable("id") Integer id) {
+        productHistoryRepository.deleteByProductId(id);
         productRepository.deleteById(id);
     }
 

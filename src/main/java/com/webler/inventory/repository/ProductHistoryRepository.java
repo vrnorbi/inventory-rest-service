@@ -14,4 +14,6 @@ public interface ProductHistoryRepository extends CrudRepository<ProductHistory,
             " where p.product.id = ?1 " +
             " order by p.date ")
     Page<ProductHistoryDto> findByProductId(Integer productId, Pageable pageable);
+
+    void deleteByProductId(Integer productId);
 }
