@@ -7,6 +7,7 @@ import com.webler.inventory.model.entities.Product;
 import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ProductHistoryRepository;
 import com.webler.inventory.repository.ProductRepository;
+import com.webler.inventory.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +29,9 @@ public class  ProductController {
     @Autowired
     private ProductHistoryRepository productHistoryRepository;
 
+    @Autowired
+    private ProductService productService;
+
     @GetMapping(path = "/id")
     public @ResponseBody Product getProductById(Integer id) throws Exception {
         return productRepository.findById(id).orElseThrow(() -> new Exception("Product not found"));
@@ -44,19 +48,12 @@ public class  ProductController {
     @DeleteMapping(path = "/delete/{id}")
     @Transactional
     public void deleteProduct(@PathVariable("id") Integer id) {
-        productHistoryRepository.deleteByProductId(id);
-        productRepository.deleteById(id);
+        productService.deleteProduct(id);
     }
 
     @PostMapping(path = "/new")
     public void saveProduct(@RequestBody Product product) {
-        productRepository.save(product);
-        ProductHistory productHistory = new ProductHistory();
-        productHistory.setDate(new Date(System.currentTimeMillis()));
-        productHistory.setPrice(product.getPrice());
-        productHistory.setQuantity(product.getQuantity());
-        productHistory.setProduct(product);
-        productHistoryRepository.save(productHistory);
+       productService.saveProduct(product);
     }
 
     @PutMapping(path = "/update")
