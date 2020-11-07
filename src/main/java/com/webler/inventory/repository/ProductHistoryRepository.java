@@ -15,5 +15,11 @@ public interface ProductHistoryRepository extends CrudRepository<ProductHistory,
             " order by p.date desc ")
     Page<ProductHistoryDto> findByProductId(Integer productId, Pageable pageable);
 
+//    @Query(" select new com.webler.inventory.model.dtos.ProductHistoryDto(p.date, p.price, p.quantity) " +
+//            " from ProductHistory p " +
+//            " where p.product.id = ?1 " +
+//            " order by p.date desc ")
+//    Page<ProductHistoryDto> findByProductId(Integer productId, Pageable pageable);
+
     void deleteByProductId(Integer productId);
 }

@@ -1,4 +1,4 @@
-package com.webler.inventory.model.dtos;
+package com.webler.inventory.model.dtos.params;
 
 import org.springframework.data.domain.Sort;
 

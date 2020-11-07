@@ -1,8 +1,8 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.PagingParams;
-import com.webler.inventory.model.dtos.SortingParams;
-import com.webler.inventory.model.dtos.SupplierParams;
+import com.webler.inventory.model.dtos.params.PagingParams;
+import com.webler.inventory.model.dtos.params.SortingParams;
+import com.webler.inventory.model.dtos.params.SupplierParams;
 import com.webler.inventory.model.entities.Supplier;
 import com.webler.inventory.repository.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;

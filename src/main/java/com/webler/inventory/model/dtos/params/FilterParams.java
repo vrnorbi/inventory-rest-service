@@ -1,4 +1,4 @@
-package com.webler.inventory.model.dtos;
+package com.webler.inventory.model.dtos.params;
 
 import static java.lang.Integer.MAX_VALUE;
 
