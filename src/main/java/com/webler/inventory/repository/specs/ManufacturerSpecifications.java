@@ -21,6 +21,6 @@ public class ManufacturerSpecifications {
     }
 
     private static Specification<Manufacturer> getManufacturerByRating(Integer rating) {
-        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThan(root.get("rating"), rating);
+        return (Specification<Manufacturer>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("rating"), rating);
     }
 }

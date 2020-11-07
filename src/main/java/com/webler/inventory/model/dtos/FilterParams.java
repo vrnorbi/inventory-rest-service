@@ -1,7 +1,6 @@
 package com.webler.inventory.model.dtos;
 
 import static java.lang.Integer.MAX_VALUE;
-import static java.lang.Integer.MIN_VALUE;
 
 public class FilterParams {
 
@@ -11,11 +10,11 @@ public class FilterParams {
 
     private String brand = "";
 
-    private Integer fromPrice = MIN_VALUE;
+    private Integer fromPrice = 0;
 
     private Integer toPrice = MAX_VALUE;
 
-    private Integer fromQuantity = MIN_VALUE;
+    private Integer fromQuantity = 0;
 
     private Integer toQuantity = MAX_VALUE;
 
