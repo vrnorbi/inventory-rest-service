@@ -2,15 +2,26 @@ package com.webler.inventory.model.dtos;
 
 public class StatsDto {
 
+    private Integer id;
+
     private String name;
 
     private Integer value;
 
     public StatsDto() {}
 
-    public StatsDto(String name, Integer value) {
+    public StatsDto(Integer id, String name, Integer value) {
+        this.id = id;
         this.name = name;
         this.value = value;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

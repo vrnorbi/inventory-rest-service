@@ -1,5 +1,6 @@
 package com.webler.inventory.controller;
 
+import com.webler.inventory.model.dtos.StatsDto;
 import com.webler.inventory.model.dtos.params.FilterParams;
 import com.webler.inventory.model.dtos.params.PagingParams;
 import com.webler.inventory.model.dtos.params.SortingParams;
@@ -8,8 +9,9 @@ import com.webler.inventory.repository.ProductRepository;
 import com.webler.inventory.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.webler.inventory.repository.specs.ProductSpecifications.getProductsByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
@@ -38,8 +40,12 @@ public class  ProductController {
         );
     }
 
+    @GetMapping(path = "/low-quantity")
+    public @ResponseBody List<StatsDto> findProductsWithLowestQuantity() throws Exception {
+        return productRepository.findProductsWithLowestQuantity(of(0, 5));
+    }
+
     @DeleteMapping(path = "/delete/{id}")
-    @Transactional
     public void deleteProduct(@PathVariable("id") Integer id) {
         productService.deleteProduct(id);
     }
@@ -49,8 +55,4 @@ public class  ProductController {
        productService.saveProduct(product);
     }
 
-    @PutMapping(path = "/update")
-    public void updateProduct(@RequestBody Product product) {
-        productRepository.save(product);
-    }
 }
