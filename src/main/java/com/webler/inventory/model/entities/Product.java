@@ -1,8 +1,41 @@
 package com.webler.inventory.model.entities;
 
+import com.webler.inventory.model.dtos.StatsDto;
+
 import javax.persistence.*;
 
 @Entity
+@SqlResultSetMapping(
+        name = "statsMapping",
+        classes = {
+                @ConstructorResult(
+                        targetClass = StatsDto.class,
+                        columns = {
+                                @ColumnResult(name = "id"),
+                                @ColumnResult(name = "name"),
+                                @ColumnResult(name = "value")
+                        }
+                )
+        }
+)
+@NamedNativeQuery(
+        name = "Product.findLowestPriceInCategory",
+        query = "SELECT " +
+                "  p.id, " +
+                "  t.category_name name, " +
+                "  p.price value " +
+                "FROM product p " +
+                "JOIN " +
+                "( " +
+                "  SELECT c.id category_id, c.name category_name, MIN(price) price " +
+                "  FROM product pr " +
+                "  INNER JOIN category c ON pr.category_id = c.id " +
+                "  GROUP BY pr.category_id " +
+                ") t " +
+                "ON p.category_id = t.category_id " +
+                "AND p.price = t.price",
+        resultSetMapping = "statsMapping"
+)
 public class Product {
 
     @Id
