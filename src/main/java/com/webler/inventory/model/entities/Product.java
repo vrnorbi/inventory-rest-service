@@ -4,6 +4,9 @@ import com.webler.inventory.model.dtos.StatsDto;
 
 import javax.persistence.*;
 
+import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_BIGGEST_PRICE_DROPS;
+import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_LOWEST_PRICE_IN_CATEGORY;
+
 @Entity
 @SqlResultSetMapping(
         name = "statsMapping",
@@ -14,26 +17,15 @@ import javax.persistence.*;
                                 @ColumnResult(name = "id"),
                                 @ColumnResult(name = "name"),
                                 @ColumnResult(name = "value")
-                        }
-                )
-        }
-)
+                        })})
 @NamedNativeQuery(
         name = "Product.findLowestPriceInCategory",
-        query = "SELECT " +
-                "  p.id, " +
-                "  t.category_name name, " +
-                "  p.price value " +
-                "FROM product p " +
-                "JOIN " +
-                "( " +
-                "  SELECT c.id category_id, c.name category_name, MIN(price) price " +
-                "  FROM product pr " +
-                "  INNER JOIN category c ON pr.category_id = c.id " +
-                "  GROUP BY pr.category_id " +
-                ") t " +
-                "ON p.category_id = t.category_id " +
-                "AND p.price = t.price",
+        query = FIND_LOWEST_PRICE_IN_CATEGORY,
+        resultSetMapping = "statsMapping"
+)
+@NamedNativeQuery(
+        name = "Product.findBiggestPriceDrops",
+        query = FIND_BIGGEST_PRICE_DROPS,
         resultSetMapping = "statsMapping"
 )
 public class Product {
