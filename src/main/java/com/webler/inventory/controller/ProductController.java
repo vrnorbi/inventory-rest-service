@@ -41,9 +41,20 @@ public class  ProductController {
     }
 
     @GetMapping(path = "/low-quantity")
-    public @ResponseBody List<StatsDto> findProductsWithLowestQuantity() throws Exception {
+    public @ResponseBody List<StatsDto> findProductsWithLowestQuantity() {
         return productRepository.findProductsWithLowestQuantity(of(0, 5));
     }
+
+    @GetMapping(path = "/low-price")
+    public @ResponseBody List<StatsDto> findProductsWithLowestPrice() {
+        return productRepository.findProductsWithLowestPrice(of(0, 5));
+    }
+
+    @GetMapping(path = "/low-price-in-category")
+    public @ResponseBody List<StatsDto> findLowestPriceInCategory() {
+        return productRepository.findLowestPriceInCategory();
+    }
+
 
     @DeleteMapping(path = "/delete/{id}")
     public void deleteProduct(@PathVariable("id") Integer id) {

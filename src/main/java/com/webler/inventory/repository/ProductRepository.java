@@ -23,4 +23,13 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
             " order by p.quantity ")
     List<StatsDto> findProductsWithLowestQuantity(Pageable pageable);
 
+    @Query(" select new com.webler.inventory.model.dtos.StatsDto(p.id, p.name, p.price) " +
+            " from Product p " +
+            " order by p.price ")
+    List<StatsDto> findProductsWithLowestPrice(Pageable pageable);
+
+    @Query(" select new com.webler.inventory.model.dtos.StatsDto(p.category.name, min(p.price)) " +
+            " from Product p " +
+            " group by p.category ")
+    List<StatsDto> findLowestPriceInCategory();
 }
