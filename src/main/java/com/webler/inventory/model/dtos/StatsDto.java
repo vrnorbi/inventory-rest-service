@@ -10,6 +10,11 @@ public class StatsDto {
 
     public StatsDto() {}
 
+    public StatsDto(String name, Integer value) {
+        this.name = name;
+        this.value = value;
+    }
+
     public StatsDto(Integer id, String name, Integer value) {
         this.id = id;
         this.name = name;
