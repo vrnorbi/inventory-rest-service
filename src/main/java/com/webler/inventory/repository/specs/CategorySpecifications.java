@@ -1,6 +1,6 @@
 package com.webler.inventory.repository.specs;
 
-import com.webler.inventory.model.dtos.CategoryParams;
+import com.webler.inventory.model.dtos.params.CategoryParams;
 import com.webler.inventory.model.entities.Category;
 import org.springframework.data.jpa.domain.Specification;
 

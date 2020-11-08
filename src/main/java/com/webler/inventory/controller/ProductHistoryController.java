@@ -1,19 +1,11 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.ProductDto;
-import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.dtos.ProductWithHistoryDto;
 import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ProductHistoryRepository;
-import com.webler.inventory.repository.ProductRepository;
+import com.webler.inventory.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-import static java.util.Comparator.comparing;
-import static java.util.stream.Collectors.toList;
-import static org.springframework.data.domain.PageRequest.of;
 
 @RestController
 @RequestMapping("/producthistory")
@@ -21,10 +13,10 @@ import static org.springframework.data.domain.PageRequest.of;
 public class ProductHistoryController {
 
     @Autowired
-    private ProductHistoryRepository productHistoryRepository;
+    private ProductService productService;
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductHistoryRepository productHistoryRepository;
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<ProductHistory> getAllProductHistories() {
@@ -33,14 +25,7 @@ public class ProductHistoryController {
 
     @GetMapping(path="/filter")
     public @ResponseBody ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
-        List<ProductHistoryDto> productHistoryDtos = productHistoryRepository
-                                                        .findByProductId(productId, of(0, 7))
-                                                        .getContent()
-                                                        .stream()
-                                                        .sorted(comparing(ProductHistoryDto::getDate))
-                                                        .collect(toList());
-        ProductDto productDto = productRepository.findProductById(productId);
-        return new ProductWithHistoryDto(productDto, productHistoryDtos);
+        return productService.getProductHistoriesByProductId(productId);
 
     }
 }

@@ -1,6 +1,6 @@
 package com.webler.inventory.repository.specs;
 
-import com.webler.inventory.model.dtos.FilterParams;
+import com.webler.inventory.model.dtos.params.FilterParams;
 import com.webler.inventory.model.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 

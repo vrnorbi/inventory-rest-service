@@ -1,8 +1,8 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.CategoryParams;
-import com.webler.inventory.model.dtos.PagingParams;
-import com.webler.inventory.model.dtos.SortingParams;
+import com.webler.inventory.model.dtos.params.CategoryParams;
+import com.webler.inventory.model.dtos.params.PagingParams;
+import com.webler.inventory.model.dtos.params.SortingParams;
 import com.webler.inventory.model.entities.Category;
 import com.webler.inventory.repository.CategoryRepository;
 import com.webler.inventory.repository.specs.CategorySpecifications;
