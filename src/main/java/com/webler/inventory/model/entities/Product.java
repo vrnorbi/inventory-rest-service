@@ -16,7 +16,8 @@ import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_L
                         columns = {
                                 @ColumnResult(name = "id"),
                                 @ColumnResult(name = "name"),
-                                @ColumnResult(name = "value")
+                                @ColumnResult(name = "value"),
+                                @ColumnResult(name = "value2")
                         })})
 @NamedNativeQuery(
         name = "Product.findLowestPriceInCategory",

@@ -19,7 +19,7 @@ public class NativeQueries {
             "AND p.price = t.price";
 
     public static final String FIND_BIGGEST_PRICE_DROPS =
-            "SELECT p.id, p.name, min_max_date_prices.min_date_price value " +
+            "SELECT p.id, p.name, min_max_date_prices.min_date_price value, min_max_date_prices.max_date_price value2 " +
                     "FROM ( " +
                     "  SELECT max_date_prices.product_id product_id, min_date_prices.price min_date_price, max_date_prices.price max_date_price " +
                     "  FROM ( " +

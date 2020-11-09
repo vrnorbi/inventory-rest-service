@@ -8,6 +8,8 @@ public class StatsDto {
 
     private Integer value;
 
+    private Integer value2;
+
     public StatsDto() {}
 
     public StatsDto(String name, Integer value) {
@@ -19,6 +21,13 @@ public class StatsDto {
         this.id = id;
         this.name = name;
         this.value = value;
+    }
+
+    public StatsDto(Integer id, String name, Integer value, Integer value2) {
+        this.id = id;
+        this.name = name;
+        this.value = value;
+        this.value2 = value2;
     }
 
     public Integer getId() {
@@ -43,5 +52,13 @@ public class StatsDto {
 
     public void setValue(Integer value) {
         this.value = value;
+    }
+
+    public Integer getValue2() {
+        return value2;
+    }
+
+    public void setValue2(Integer value2) {
+        this.value2 = value2;
     }
 }
