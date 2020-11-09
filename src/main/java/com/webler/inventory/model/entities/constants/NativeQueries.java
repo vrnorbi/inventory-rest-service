@@ -47,6 +47,8 @@ public class NativeQueries {
                     "  ) as min_date_prices " +
                     "  ON max_date_prices.product_id = min_date_prices.product_id " +
                     ") min_max_date_prices " +
-                    "INNER JOIN product p ON p.id = min_max_date_prices.product_id";
+                    "INNER JOIN product p ON p.id = min_max_date_prices.product_id " +
+                    "ORDER BY (value2 - value) DESC " +
+                    "LIMIT 5";
 
 }

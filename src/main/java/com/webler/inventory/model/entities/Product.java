@@ -16,6 +16,16 @@ import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_L
                         columns = {
                                 @ColumnResult(name = "id"),
                                 @ColumnResult(name = "name"),
+                                @ColumnResult(name = "value")
+                        })})
+@SqlResultSetMapping(
+        name = "priceDropMapping",
+        classes = {
+                @ConstructorResult(
+                        targetClass = StatsDto.class,
+                        columns = {
+                                @ColumnResult(name = "id"),
+                                @ColumnResult(name = "name"),
                                 @ColumnResult(name = "value"),
                                 @ColumnResult(name = "value2")
                         })})
@@ -27,7 +37,7 @@ import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_L
 @NamedNativeQuery(
         name = "Product.findBiggestPriceDrops",
         query = FIND_BIGGEST_PRICE_DROPS,
-        resultSetMapping = "statsMapping"
+        resultSetMapping = "priceDropMapping"
 )
 public class Product {
 
