@@ -55,6 +55,10 @@ public class  ProductController {
         return productRepository.findLowestPriceInCategory();
     }
 
+    @GetMapping(path = "/biggest-price-drops")
+    public @ResponseBody List<StatsDto> findBiggestPriceDrops() {
+        return productRepository.findBiggestPriceDrops();
+    }
 
     @DeleteMapping(path = "/delete/{id}")
     public void deleteProduct(@PathVariable("id") Integer id) {
