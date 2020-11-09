@@ -54,8 +54,8 @@ public class ProductService {
                 .stream()
                 .sorted(comparing(ProductHistoryDto::getDate))
                 .collect(toList());
-        ProductDto productDto = productRepository.findProductById(productId);
-        return new ProductWithHistoryDto(productDto, productHistoryDtos);
+        Product product = productRepository.findById(productId).get();
+        return new ProductWithHistoryDto(product, productHistoryDtos);
     }
 
 }
