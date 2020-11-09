@@ -16,6 +16,7 @@ import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_L
                         columns = {
                                 @ColumnResult(name = "id"),
                                 @ColumnResult(name = "name"),
+                                @ColumnResult(name = "name2"),
                                 @ColumnResult(name = "value")
                         })})
 @SqlResultSetMapping(
