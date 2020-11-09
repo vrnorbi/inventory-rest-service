@@ -60,12 +60,7 @@ public class  ProductController {
 
     @GetMapping(path = "/biggest-price-drops")
     public @ResponseBody List<StatsDto> findBiggestPriceDrops() {
-        return productRepository
-                .findBiggestPriceDrops()
-                .stream()
-                .sorted(comparing(StatsDto::getValueDiff).reversed())
-                .limit(5)
-                .collect(Collectors.toList());
+        return productRepository.findBiggestPriceDrops();
     }
 
     @DeleteMapping(path = "/delete/{id}")

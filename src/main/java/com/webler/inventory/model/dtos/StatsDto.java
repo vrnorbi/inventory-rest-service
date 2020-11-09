@@ -6,6 +6,8 @@ public class StatsDto {
 
     private String name;
 
+    private String name2;
+
     private Integer value;
 
     private Integer value2;
@@ -20,6 +22,13 @@ public class StatsDto {
     public StatsDto(Integer id, String name, Integer value) {
         this.id = id;
         this.name = name;
+        this.value = value;
+    }
+
+    public StatsDto(Integer id, String name, String name2, Integer value) {
+        this.id = id;
+        this.name = name;
+        this.name2 = name2;
         this.value = value;
     }
 
@@ -48,6 +57,14 @@ public class StatsDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getName2() {
+        return name2;
+    }
+
+    public void setName2(String name2) {
+        this.name2 = name2;
     }
 
     public Integer getValue() {
