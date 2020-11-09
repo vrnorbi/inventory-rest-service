@@ -1,6 +1,5 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.dtos.StatsDto;
 import com.webler.inventory.model.dtos.params.FilterParams;
 import com.webler.inventory.model.dtos.params.PagingParams;
@@ -13,10 +12,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.webler.inventory.repository.specs.ProductSpecifications.getProductsByFilterSpec;
-import static java.util.Comparator.comparing;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RestController
