@@ -30,6 +30,10 @@ public class StatsDto {
         this.value2 = value2;
     }
 
+    public Integer getValueDiff() {
+        return value - value2;
+    }
+
     public Integer getId() {
         return id;
     }
