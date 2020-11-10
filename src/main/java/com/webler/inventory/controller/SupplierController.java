@@ -22,7 +22,6 @@ import static org.springframework.data.domain.PageRequest.of;
 
 public class SupplierController {
 
-    @Autowired
     private final SupplierRepository supplierRepository;
 
     @GetMapping(path = "/filter")

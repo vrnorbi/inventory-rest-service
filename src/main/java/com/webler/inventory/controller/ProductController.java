@@ -25,10 +25,8 @@ import static org.springframework.data.domain.PageRequest.of;
 @CrossOrigin(origins = "http://localhost:4200")
 public class  ProductController {
 
-    @Autowired
     private final ProductService productService;
 
-    @Autowired
     private final ProductRepository productRepository;
 
     @GetMapping(path = "/id")

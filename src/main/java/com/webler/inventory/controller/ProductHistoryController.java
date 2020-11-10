@@ -16,10 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductHistoryController {
 
-    @Autowired
     private final ProductService productService;
 
-    @Autowired
     private final ProductHistoryRepository productHistoryRepository;
 
     @GetMapping(path="/all")

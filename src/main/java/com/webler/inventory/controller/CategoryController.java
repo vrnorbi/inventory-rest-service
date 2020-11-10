@@ -21,7 +21,6 @@ import static org.springframework.data.domain.PageRequest.of;
 @CrossOrigin(origins = "http://localhost:4200")
 public class CategoryController {
 
-        @Autowired
         private final CategoryRepository categoryRepository;
 
         @GetMapping(path = "/filter")
