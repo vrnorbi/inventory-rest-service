@@ -17,8 +17,7 @@ import static org.springframework.data.domain.PageRequest.of;
 @RestController
 @RequestMapping("/suppliers")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
-
+@CrossOrigin(origins = "*")
 public class SupplierController {
 
     private final SupplierRepository supplierRepository;
