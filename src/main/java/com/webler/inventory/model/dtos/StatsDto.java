@@ -1,18 +1,18 @@
 package com.webler.inventory.model.dtos;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class StatsDto {
-
     private Integer id;
-
     private String name;
-
     private String name2;
-
     private Integer value;
-
     private Integer value2;
-
-    public StatsDto() {}
 
     public StatsDto(String name, Integer value) {
         this.name = name;

@@ -1,20 +1,12 @@
 package com.webler.inventory.model.dtos.params;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryParams {
-
-    private String name = "";
-
-    public CategoryParams(){}
-
-    public CategoryParams(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String name;
 }

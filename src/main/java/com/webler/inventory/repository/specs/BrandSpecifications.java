@@ -4,6 +4,7 @@ import com.webler.inventory.model.dtos.params.BrandParams;
 import com.webler.inventory.model.entities.Brand;
 import org.springframework.data.jpa.domain.Specification;
 
+
 public class BrandSpecifications {
 
     public static Specification<Brand> getBrandByFilterSpec(BrandParams brandParams) {
