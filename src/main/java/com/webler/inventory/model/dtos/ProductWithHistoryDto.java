@@ -1,34 +1,16 @@
 package com.webler.inventory.model.dtos;
 
+import com.webler.inventory.model.entities.Product;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductWithHistoryDto {
-
-    private ProductDto product;
-
+    private Product product;
     private List<ProductHistoryDto> productHistories;
-
-    public ProductWithHistoryDto() {}
-
-    public ProductWithHistoryDto(ProductDto product, List<ProductHistoryDto> productHistories) {
-        this.product = product;
-        this.productHistories = productHistories;
-    }
-
-    public ProductDto getProduct() {
-        return product;
-    }
-
-    public void setProduct(ProductDto product) {
-        this.product = product;
-    }
-
-    public List<ProductHistoryDto> getProductHistories() {
-        return productHistories;
-    }
-
-    public void setProductHistories(List<ProductHistoryDto> productHistories) {
-        this.productHistories = productHistories;
-    }
-
 }

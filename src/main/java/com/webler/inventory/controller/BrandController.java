@@ -6,19 +6,21 @@ import com.webler.inventory.model.dtos.params.SortingParams;
 import com.webler.inventory.model.entities.Brand;
 import com.webler.inventory.repository.BrandRepository;
 import com.webler.inventory.repository.specs.BrandSpecifications;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.data.domain.PageRequest.of;
 
+@Slf4j
 @RestController
 @RequestMapping("/brands")
+@RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 public class BrandController {
 
-    @Autowired
-    private BrandRepository brandRepository;
+    private final BrandRepository brandRepository;
 
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Brand> getBrandByNameSpec(BrandParams brandParams, SortingParams sortingParams, PagingParams pagingParams) {
@@ -28,6 +30,7 @@ public class BrandController {
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Brand> getAllBrands() {
+        log.info("Endpoint /brands/all called, retrieving all brands");
         return brandRepository.findAll();
     }
 
