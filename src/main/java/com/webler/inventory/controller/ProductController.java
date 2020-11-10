@@ -26,10 +26,10 @@ import static org.springframework.data.domain.PageRequest.of;
 public class  ProductController {
 
     @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
     @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @GetMapping(path = "/id")
     public @ResponseBody Product getProductById(Integer id) throws Exception {

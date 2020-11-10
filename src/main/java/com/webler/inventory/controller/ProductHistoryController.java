@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.*;
 public class ProductHistoryController {
 
     @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
     @Autowired
-    private ProductHistoryRepository productHistoryRepository;
+    private final ProductHistoryRepository productHistoryRepository;
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<ProductHistory> getAllProductHistories() {

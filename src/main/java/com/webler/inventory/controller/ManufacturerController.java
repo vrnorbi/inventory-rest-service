@@ -22,7 +22,7 @@ import static org.springframework.data.domain.PageRequest.of;
 public class ManufacturerController {
 
     @Autowired
-    private ManufacturerRepository manufacturerRepository;
+    private final ManufacturerRepository manufacturerRepository;
 
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Manufacturer> filterManufacturers(ManufacturerFilterParams manufacturerFilterParams,SortingParams sortingParams, PagingParams pagingParams) {

@@ -23,7 +23,7 @@ import static org.springframework.data.domain.PageRequest.of;
 public class SupplierController {
 
     @Autowired
-    private SupplierRepository supplierRepository;
+    private final SupplierRepository supplierRepository;
 
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Supplier> getSupplierByFilter(SupplierParams supplierParams, SortingParams sortingParams, PagingParams pagingParams) {
