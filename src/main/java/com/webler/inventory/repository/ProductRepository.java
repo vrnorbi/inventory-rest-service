@@ -33,4 +33,5 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, I
 
     @Query(nativeQuery = true)
     List<StatsDto> findBiggestPriceDrops();
+
 }
