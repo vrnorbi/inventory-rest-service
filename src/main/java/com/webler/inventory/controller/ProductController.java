@@ -7,6 +7,8 @@ import com.webler.inventory.model.dtos.params.SortingParams;
 import com.webler.inventory.model.entities.Product;
 import com.webler.inventory.repository.ProductRepository;
 import com.webler.inventory.service.ProductService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -16,16 +18,16 @@ import java.util.List;
 import static com.webler.inventory.repository.specs.ProductSpecifications.getProductsByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
 
+@Slf4j
 @RestController
 @RequestMapping("/products")
+@RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 public class  ProductController {
 
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     @GetMapping(path = "/id")
     public @ResponseBody Product getProductById(Integer id) throws Exception {

@@ -1,22 +1,14 @@
 package com.webler.inventory.model.dtos.params;
 
-public class BrandParams {
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class BrandParams {
     private String name = "";
 
-    public BrandParams(){
-
-    }
-
-    public BrandParams(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
