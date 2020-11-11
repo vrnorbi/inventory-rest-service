@@ -26,7 +26,6 @@ public class CategoryService {
     }
 
     public Iterable<Category> findAllCategories() {
-        log.info("Endpoint /categories/all called, retrieving all categories");
         return categoryRepository.findAll();
     }
 }

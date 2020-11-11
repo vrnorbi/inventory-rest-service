@@ -21,7 +21,7 @@ public class CategoryController {
 
         @GetMapping(path = "/filter")
         public @ResponseBody Page<Category> getCategoryByName(CategoryParams categoryParams, SortingParams sortingParams, PagingParams pagingParams) {
-                log.info("Endpoint /categories/filter called, retrieving brandfilter");
+                log.info("Endpoint /categories/filter called, retrieving categories with filter");
                 return categoryService.getCategoryByName(categoryParams, sortingParams, pagingParams);
         }
 
