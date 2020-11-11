@@ -1,7 +1,6 @@
 package com.webler.inventory.service;
 
 import com.webler.inventory.model.dtos.ProductHistoryDto;
-import com.webler.inventory.model.dtos.ProductWithHistoryDto;
 import com.webler.inventory.model.entities.Product;
 import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ProductHistoryRepository;
@@ -43,15 +42,13 @@ public class ProductService {
         productHistoryRepository.save(productHistory);
     }
 
-    public ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
-        List<ProductHistoryDto> productHistoryDtos = productHistoryRepository
+    public List<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
+        return productHistoryRepository
                 .findByProductId(productId, of(0, 7))
                 .getContent()
                 .stream()
                 .sorted(comparing(ProductHistoryDto::getDate))
                 .collect(toList());
-        Product product = productRepository.findById(productId).get();
-        return new ProductWithHistoryDto(product, productHistoryDtos);
     }
 
 }
