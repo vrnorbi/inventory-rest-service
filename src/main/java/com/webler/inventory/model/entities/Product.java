@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_BIGGEST_PRICE_DROPS;
 import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_LOWEST_PRICE_IN_CATEGORY;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Data
 @Entity
@@ -45,7 +46,7 @@ import static com.webler.inventory.model.entities.constants.NativeQueries.FIND_L
 public class Product {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
 
     private String name;
