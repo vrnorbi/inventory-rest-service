@@ -26,7 +26,7 @@ public class ProductHistoryController {
         return productHistoryRepository.findAll();
     }
 
-    @GetMapping(path="/filter")
+    @GetMapping(path="/productId")
     public @ResponseBody List<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
         return productService.getProductHistoriesByProductId(productId);
     }
