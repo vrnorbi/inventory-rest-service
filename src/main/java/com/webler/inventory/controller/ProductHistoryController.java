@@ -1,12 +1,14 @@
 package com.webler.inventory.controller;
 
-import com.webler.inventory.model.dtos.ProductWithHistoryDto;
+import com.webler.inventory.model.dtos.ProductHistoryDto;
 import com.webler.inventory.model.entities.ProductHistory;
 import com.webler.inventory.repository.ProductHistoryRepository;
 import com.webler.inventory.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -25,7 +27,7 @@ public class ProductHistoryController {
     }
 
     @GetMapping(path="/filter")
-    public @ResponseBody ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
+    public @ResponseBody List<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
         return productService.getProductHistoriesByProductId(productId);
     }
 }
