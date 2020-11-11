@@ -19,5 +19,4 @@ public class FilterParams {
     private Integer toQuantity = MAX_VALUE;
     private String supplier = "";
     private String manufacturer = "";
-
 }

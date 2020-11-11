@@ -18,7 +18,6 @@ public class ProductSpecifications {
                 .and(getProductsQuantityLessThan(filterParams.getToQuantity())));
     }
 
-    //    one condition
     private static Specification<Product> getProductsByNameSpec(String name) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + name + "%");
     }

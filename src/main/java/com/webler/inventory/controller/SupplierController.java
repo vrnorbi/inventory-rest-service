@@ -7,7 +7,6 @@ import com.webler.inventory.model.entities.Supplier;
 import com.webler.inventory.repository.SupplierRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,8 +17,7 @@ import static org.springframework.data.domain.PageRequest.of;
 @RestController
 @RequestMapping("/suppliers")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
-
+@CrossOrigin(origins = "*")
 public class SupplierController {
 
     private final SupplierRepository supplierRepository;

@@ -20,20 +20,4 @@ public class SortingParams {
             return by(sortBy).descending();
         return by(sortBy).ascending();
     }
-
-    public String getSortBy() {
-        return sortBy;
-    }
-
-    public void setSortBy(String sortBy) {
-        this.sortBy = sortBy;
-    }
-
-    public String getSortDirection() {
-        return sortDirection;
-    }
-
-    public void setSortDirection(String sortDirection) {
-        this.sortDirection = sortDirection;
-    }
 }

@@ -6,12 +6,11 @@ import com.webler.inventory.repository.ProductHistoryRepository;
 import com.webler.inventory.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/producthistory")
+@RequestMapping("/product-history")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductHistoryController {
@@ -28,6 +27,5 @@ public class ProductHistoryController {
     @GetMapping(path="/filter")
     public @ResponseBody ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
         return productService.getProductHistoriesByProductId(productId);
-
     }
 }
