@@ -4,14 +4,11 @@ import com.webler.inventory.model.dtos.params.ManufacturerFilterParams;
 import com.webler.inventory.model.dtos.params.PagingParams;
 import com.webler.inventory.model.dtos.params.SortingParams;
 import com.webler.inventory.model.entities.Manufacturer;
-import com.webler.inventory.repository.ManufacturerRepository;
+import com.webler.inventory.service.ManufacturerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-
-import static com.webler.inventory.repository.specs.ManufacturerSpecifications.getManufacturerByFilterSpec;
-import static org.springframework.data.domain.PageRequest.of;
 
 @Slf4j
 @RestController
@@ -20,17 +17,16 @@ import static org.springframework.data.domain.PageRequest.of;
 @CrossOrigin(origins = "http://localhost:4200")
 public class ManufacturerController {
 
-    private final ManufacturerRepository manufacturerRepository;
+    private final ManufacturerService manufacturerService;
 
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Manufacturer> filterManufacturers(ManufacturerFilterParams manufacturerFilterParams,SortingParams sortingParams, PagingParams pagingParams) {
-        return manufacturerRepository.findAll(
-                getManufacturerByFilterSpec(manufacturerFilterParams),
-                of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
+        log.info("Endpoint /manufacturers/filter called, retrieving manufacturers");
+        return manufacturerService.filterManufacturers(manufacturerFilterParams, sortingParams, pagingParams);
     }
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Manufacturer> getAllManufacturers() {
-        return manufacturerRepository.findAll();
+        return manufacturerService.getAllManufacturers();
     }
 }
