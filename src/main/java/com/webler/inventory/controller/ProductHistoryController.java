@@ -21,11 +21,13 @@ public class ProductHistoryController {
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<ProductHistory> getAllProductHistories() {
+        log.info("Endpoint /producthistory/filter called, retrieving allhistory");
         return productHistoryRepository.findAll();
     }
 
     @GetMapping(path="/filter")
     public @ResponseBody ProductWithHistoryDto getProductHistoriesByProductId(Integer productId) {
+        log.info("Endpoint /producthistory/filter called, retrieving productidhistory");
         return productService.getProductHistoriesByProductId(productId);
     }
 }

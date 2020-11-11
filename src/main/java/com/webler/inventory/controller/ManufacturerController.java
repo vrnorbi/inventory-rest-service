@@ -27,6 +27,7 @@ public class ManufacturerController {
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Manufacturer> getAllManufacturers() {
+        log.info("Endpoint /manufacturers/filter called, retrieving manufacturer");
         return manufacturerService.getAllManufacturers();
     }
 }

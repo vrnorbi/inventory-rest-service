@@ -21,16 +21,19 @@ public class SupplierController {
 
     @GetMapping(path = "/filter")
     public @ResponseBody Page<Supplier> getSupplierByFilter(SupplierParams supplierParams, SortingParams sortingParams, PagingParams pagingParams) {
+        log.info("Endpoint /supplier/filter called, retrieving supplierfilter");
         return supplierService.getSupplierByFilter(supplierParams, sortingParams, pagingParams);
     }
 
     @GetMapping(path = "/all")
     public @ResponseBody Iterable<Supplier> getAllSuppliers() {
+        log.info("Endpoint /supplier/filter called, retrieving suppliers");
         return supplierService.getAllSuppliers();
     }
 
     @PostMapping(path = "/new")
     public void saveSupplier(@RequestBody Supplier supplier) {
+        log.info("Endpoint /supplier/filter called, retrieving newsupplier");
         supplierService.saveSupplier(supplier);
     }
 }
