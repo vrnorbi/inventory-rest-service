@@ -20,9 +20,11 @@ public class SupplierController {
     private final SupplierService supplierService;
 
     @GetMapping(path = "/filter")
-    public @ResponseBody Page<Supplier> getSupplierByFilter(SupplierParams supplierParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public @ResponseBody Page<Supplier> filterSuppliers(SupplierParams supplierParams,
+                                                        SortingParams sortingParams,
+                                                        PagingParams pagingParams) {
         log.info("Endpoint /suppliers/filter called, retrieving suppliers filter");
-        return supplierService.getSupplierByFilter(supplierParams, sortingParams, pagingParams);
+        return supplierService.filterSuppliers(supplierParams, sortingParams, pagingParams);
     }
 
     @GetMapping(path = "/all")
@@ -31,9 +33,4 @@ public class SupplierController {
         return supplierService.getAllSuppliers();
     }
 
-    @PostMapping(path = "/new")
-    public void saveSupplier(@RequestBody Supplier supplier) {
-        log.info("Endpoint /suppliers/new called,saving supplier");
-        supplierService.saveSupplier(supplier);
-    }
 }

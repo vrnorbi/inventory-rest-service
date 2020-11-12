@@ -20,7 +20,9 @@ public class ManufacturerController {
     private final ManufacturerService manufacturerService;
 
     @GetMapping(path = "/filter")
-    public @ResponseBody Page<Manufacturer> filterManufacturers(ManufacturerFilterParams manufacturerFilterParams,SortingParams sortingParams, PagingParams pagingParams) {
+    public @ResponseBody Page<Manufacturer> filterManufacturers(ManufacturerFilterParams manufacturerFilterParams,
+                                                                SortingParams sortingParams,
+                                                                PagingParams pagingParams) {
         log.info("Endpoint /manufacturers/filter called, retrieving manufacturer with filter");
         return manufacturerService.filterManufacturers(manufacturerFilterParams, sortingParams, pagingParams);
     }
