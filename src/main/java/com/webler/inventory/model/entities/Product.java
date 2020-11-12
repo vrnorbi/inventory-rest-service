@@ -34,12 +34,12 @@ import static javax.persistence.GenerationType.IDENTITY;
                                 @ColumnResult(name = "value2")
                         })})
 @NamedNativeQuery(
-        name = "Product.findLowestPriceInCategory",
+        name = "Product.getLowestPricedProductsInAllCategories",
         query = FIND_LOWEST_PRICE_IN_CATEGORY,
         resultSetMapping = "statsMapping"
 )
 @NamedNativeQuery(
-        name = "Product.findBiggestPriceDrops",
+        name = "Product.getProductsWithBiggestPriceDrop",
         query = FIND_BIGGEST_PRICE_DROPS,
         resultSetMapping = "priceDropMapping"
 )

@@ -20,14 +20,16 @@ public class CategoryController {
         private final CategoryService categoryService;
 
         @GetMapping(path = "/filter")
-        public @ResponseBody Page<Category> getCategoryByName(CategoryParams categoryParams, SortingParams sortingParams, PagingParams pagingParams) {
+        public @ResponseBody Page<Category> filterCategories(CategoryParams categoryParams,
+                                                             SortingParams sortingParams,
+                                                             PagingParams pagingParams) {
                 log.info("Endpoint /categories/filter called, retrieving categories with filter");
-                return categoryService.getCategoryByName(categoryParams, sortingParams, pagingParams);
+                return categoryService.filterCategories(categoryParams, sortingParams, pagingParams);
         }
 
         @GetMapping(path="/all")
-        public @ResponseBody Iterable<Category> findAllCategories() {
+        public @ResponseBody Iterable<Category> getAllCategories() {
                 log.info("Endpoint /categories/all called, retrieving all categories");
-                return categoryService.findAllCategories();
+                return categoryService.getAllCategories();
         }
 }

@@ -34,7 +34,9 @@ public class  ProductController {
     }
 
     @GetMapping(path = "/filter")
-    public @ResponseBody Page<Product> getProductsByFilter(FilterParams filterParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public @ResponseBody Page<Product> filterProducts(FilterParams filterParams,
+                                                      SortingParams sortingParams,
+                                                      PagingParams pagingParams) {
         return productRepository.findAll(
                 getProductsByFilterSpec(filterParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting())
@@ -42,23 +44,23 @@ public class  ProductController {
     }
 
     @GetMapping(path = "/low-quantity")
-    public @ResponseBody List<StatsDto> findProductsWithLowestQuantity() {
-        return productRepository.findProductsWithLowestQuantity(of(0, 5));
+    public @ResponseBody List<StatsDto> getProductsWithLowestQuantity() {
+        return productRepository.getProductsWithLowestQuantity(of(0, 5));
     }
 
     @GetMapping(path = "/low-price")
-    public @ResponseBody List<StatsDto> findProductsWithLowestPrice() {
-        return productRepository.findProductsWithLowestPrice(of(0, 5));
+    public @ResponseBody List<StatsDto> getProductsWithLowestPrice() {
+        return productRepository.getProductsWithLowestPrice(of(0, 5));
     }
 
     @GetMapping(path = "/low-price-in-category")
-    public @ResponseBody List<StatsDto> findLowestPriceInCategory() {
-        return productRepository.findLowestPriceInCategory();
+    public @ResponseBody List<StatsDto> getLowestPricedProductsInAllCategories() {
+        return productRepository.getLowestPricedProductsInAllCategories();
     }
 
     @GetMapping(path = "/biggest-price-drops")
-    public @ResponseBody List<StatsDto> findBiggestPriceDrops() {
-        return productRepository.findBiggestPriceDrops();
+    public @ResponseBody List<StatsDto> getProductsWithBiggestPriceDrop() {
+        return productRepository.getProductsWithBiggestPriceDrop();
     }
 
     @DeleteMapping(path = "/delete/{id}")

@@ -20,9 +20,11 @@ public class BrandController {
     private final BrandService brandService;
 
     @GetMapping(path = "/filter")
-    public @ResponseBody Page<Brand> getBrandByNameSpec(BrandParams brandParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public @ResponseBody Page<Brand> filterBrands(BrandParams brandParams,
+                                                  SortingParams sortingParams,
+                                                  PagingParams pagingParams) {
         log.info("Endpoint /brands/filter called, retrieving brands");
-        return brandService.getBrandByNameSpec(brandParams, sortingParams, pagingParams);
+        return brandService.filterBrands(brandParams, sortingParams, pagingParams);
     }
 
     @GetMapping(path = "/all")

@@ -20,7 +20,7 @@ public class SupplierService {
 
     private final SupplierRepository supplierRepository;
 
-    public Page<Supplier> getSupplierByFilter(SupplierParams supplierParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public Page<Supplier> filterSuppliers(SupplierParams supplierParams, SortingParams sortingParams, PagingParams pagingParams) {
         return supplierRepository.findAll(
                 getSupplierBySpec(supplierParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting())
@@ -31,7 +31,4 @@ public class SupplierService {
         return supplierRepository.findAll();
     }
 
-    public void saveSupplier(Supplier supplier) {
-        supplierRepository.save(supplier);
-    }
 }

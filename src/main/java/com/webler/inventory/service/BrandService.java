@@ -20,7 +20,7 @@ public class BrandService {
 
     private final BrandRepository brandRepository;
 
-    public Page<Brand> getBrandByNameSpec(BrandParams brandParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public Page<Brand> filterBrands(BrandParams brandParams, SortingParams sortingParams, PagingParams pagingParams) {
         return brandRepository.findAll(BrandSpecifications.getBrandByFilterSpec(brandParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
     }

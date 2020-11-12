@@ -20,12 +20,12 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    public Page<Category> getCategoryByName(CategoryParams categoryParams, SortingParams sortingParams, PagingParams pagingParams) {
+    public Page<Category> filterCategories(CategoryParams categoryParams, SortingParams sortingParams, PagingParams pagingParams) {
         return categoryRepository.findAll(CategorySpecifications.getCategoryByFilterSpec(categoryParams),
                 of(pagingParams.getPage(), pagingParams.getSize(), sortingParams.getSorting()));
     }
 
-    public Iterable<Category> findAllCategories() {
+    public Iterable<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
 }
