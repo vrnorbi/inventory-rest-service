@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class ManufacturerSpecifications {
 
-    public static Specification<Manufacturer> getManufacturerByFilterSpec(ManufacturerFilterParams manufacturerFilterParams) {
+    public static Specification<Manufacturer> getManufacturerFilterSpec(ManufacturerFilterParams manufacturerFilterParams) {
         return getManufacturerByNameSpec(manufacturerFilterParams.getName())
                 .and(getManufacturerByCountry(manufacturerFilterParams.getCountry())
                 .and(getManufacturerByRating(manufacturerFilterParams.getRating())));

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class SupplierSpecifications {
 
-    public static Specification<Supplier> getSupplierBySpec(SupplierParams supplierParams) {
+    public static Specification<Supplier> getSupplierFilterSpec(SupplierParams supplierParams) {
         return getSupplierByNameSpec(supplierParams.getName())
                 .and(getSupplierByIbanSpec(supplierParams.getIban())
                 .and(getSupplierByRatingSpec(supplierParams.getRating())));

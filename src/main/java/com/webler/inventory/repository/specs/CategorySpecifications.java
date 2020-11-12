@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class CategorySpecifications {
 
-    public static Specification<Category> getCategoryByFilterSpec(CategoryParams categoryParams) {
+    public static Specification<Category> getCategoryFilterSpec(CategoryParams categoryParams) {
         return getCategoryByNameSpec(categoryParams.getName());
     }
 

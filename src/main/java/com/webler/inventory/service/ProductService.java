@@ -25,6 +25,15 @@ public class ProductService {
     private final ProductHistoryRepository productHistoryRepository;
 
 
+    public List<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
+        return productHistoryRepository
+                .findByProductId(productId, of(0, 7))
+                .getContent()
+                .stream()
+                .sorted(comparing(ProductHistoryDto::getDate))
+                .collect(toList());
+    }
+
     @Transactional
     public void deleteProduct(Integer id) {
         productHistoryRepository.deleteByProductId(id);
@@ -40,15 +49,6 @@ public class ProductService {
         productHistory.setQuantity(product.getQuantity());
         productHistory.setProduct(product);
         productHistoryRepository.save(productHistory);
-    }
-
-    public List<ProductHistoryDto> getProductHistoriesByProductId(Integer productId) {
-        return productHistoryRepository
-                .findByProductId(productId, of(0, 7))
-                .getContent()
-                .stream()
-                .sorted(comparing(ProductHistoryDto::getDate))
-                .collect(toList());
     }
 
 }

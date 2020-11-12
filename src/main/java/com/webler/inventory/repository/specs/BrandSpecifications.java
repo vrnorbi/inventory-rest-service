@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class BrandSpecifications {
 
-    public static Specification<Brand> getBrandByFilterSpec(BrandParams brandParams) {
+    public static Specification<Brand> getBrandFilterSpec(BrandParams brandParams) {
         return getBrandByNameSpec(brandParams.getName());
     }
 
