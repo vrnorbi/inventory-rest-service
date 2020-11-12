@@ -6,11 +6,11 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class CategorySpecifications {
 
-    public static Specification<Category> getCategoryFilterSpec(CategoryParams categoryParams) {
-        return getCategoryByNameSpec(categoryParams.getName());
+    public static Specification<Category> getCategoriesByFilterSpec(CategoryParams categoryParams) {
+        return getCategoriesByNameSpec(categoryParams.getName());
     }
 
-    private static Specification<Category> getCategoryByNameSpec(String name) {
+    private static Specification<Category> getCategoriesByNameSpec(String name) {
         return (Specification<Category>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + name + "%");
     }
 }

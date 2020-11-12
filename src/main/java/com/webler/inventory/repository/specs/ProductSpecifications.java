@@ -12,10 +12,10 @@ public class ProductSpecifications {
                 .and(getProductsByBrandSpec(filterParams.getBrand()))
                 .and(getProductsByManufacturerSpec(filterParams.getManufacturer()))
                 .and(getProductsBySupplierSpec(filterParams.getSupplier()))
-                .and(getProductsPriceGraterThan(filterParams.getFromPrice()))
-                .and(getProductsPriceLessThan(filterParams.getToPrice())
-                .and(getProductsQuantityGraterThan(filterParams.getFromQuantity()))
-                .and(getProductsQuantityLessThan(filterParams.getToQuantity())));
+                .and(getProductsWithPriceGraterThan(filterParams.getFromPrice()))
+                .and(getProductsWithPriceLessThan(filterParams.getToPrice())
+                .and(getProductsWithQuantityGraterThan(filterParams.getFromQuantity()))
+                .and(getProductsWithQuantityLessThan(filterParams.getToQuantity())));
     }
 
     private static Specification<Product> getProductsByNameSpec(String name) {
@@ -38,19 +38,19 @@ public class ProductSpecifications {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("supplier").get("name"), "%" + supplier + "%");
     }
 
-    private static Specification<Product> getProductsPriceGraterThan(Integer price) {
+    private static Specification<Product> getProductsWithPriceGraterThan(Integer price) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("price"), price);
     }
 
-    private static Specification<Product> getProductsPriceLessThan(Integer price) {
+    private static Specification<Product> getProductsWithPriceLessThan(Integer price) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("price"), price);
     }
 
-    private static Specification<Product> getProductsQuantityGraterThan(Integer quantity) {
+    private static Specification<Product> getProductsWithQuantityGraterThan(Integer quantity) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.greaterThanOrEqualTo(root.get("quantity"), quantity);
     }
 
-    private static Specification<Product> getProductsQuantityLessThan(Integer quantity) {
+    private static Specification<Product> getProductsWithQuantityLessThan(Integer quantity) {
         return (Specification<Product>) (root, query, criteriaBuilder) -> criteriaBuilder.lessThanOrEqualTo(root.get("quantity"), quantity);
     }
 }

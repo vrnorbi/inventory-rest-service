@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import static com.webler.inventory.repository.specs.ManufacturerSpecifications.getManufacturerFilterSpec;
+import static com.webler.inventory.repository.specs.ManufacturerSpecifications.getManufacturersByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class ManufacturerService {
                                                   SortingParams sortingParams,
                                                   PagingParams pagingParams) {
         return manufacturerRepository.findAll(
-                getManufacturerFilterSpec(manufacturerFilterParams),
+                getManufacturersByFilterSpec(manufacturerFilterParams),
                 of(pagingParams.getPage(),
                     pagingParams.getSize(),
                     sortingParams.getSorting()));

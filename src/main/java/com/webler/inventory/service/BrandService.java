@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import static com.webler.inventory.repository.specs.BrandSpecifications.getBrandFilterSpec;
+import static com.webler.inventory.repository.specs.BrandSpecifications.getBrandsByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class BrandService {
                                     SortingParams sortingParams,
                                     PagingParams pagingParams) {
         return brandRepository.findAll(
-                getBrandFilterSpec(brandParams),
+                getBrandsByFilterSpec(brandParams),
                 of(pagingParams.getPage(),
                     pagingParams.getSize(),
                     sortingParams.getSorting()));

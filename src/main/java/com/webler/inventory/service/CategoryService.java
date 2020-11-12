@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import static com.webler.inventory.repository.specs.CategorySpecifications.getCategoryFilterSpec;
+import static com.webler.inventory.repository.specs.CategorySpecifications.getCategoriesByFilterSpec;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class CategoryService {
                                            SortingParams sortingParams,
                                            PagingParams pagingParams) {
         return categoryRepository.findAll(
-                getCategoryFilterSpec(categoryParams),
+                getCategoriesByFilterSpec(categoryParams),
                 of(pagingParams.getPage(),
                     pagingParams.getSize(),
                     sortingParams.getSorting()));
